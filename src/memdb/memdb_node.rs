@@ -75,7 +75,7 @@ impl<T: Comparer> db_skip<T> {
                 // 下一个节点存在
                 cmp = self
                     .cmp
-                    .compare(key.data(), self.get_key_data(&node.borrow()));
+                    .compare(key.data(), self.get_key_data(&next.borrow()));
 
                 next_node = Rc::clone(&next);
             }
@@ -117,7 +117,7 @@ impl<T: Comparer> db_skip<T> {
                 // 下一个节点存在
                 cmp = self
                     .cmp
-                    .compare(key.data(), self.get_key_data(&node.borrow()));
+                    .compare(key.data(), self.get_key_data(&next.borrow()));
 
                 next_node = Rc::clone(&next);
             }
