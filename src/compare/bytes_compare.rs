@@ -1,3 +1,4 @@
+#![allow(unused)]
 use crate::compare::basic_comparer;
 use crate::compare::Comparer;
 use std::cmp::Ordering;

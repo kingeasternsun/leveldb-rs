@@ -1,3 +1,5 @@
+#![allow(unused)]
+#![warn(non_upper_case_globals)]
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::rc::Rc;
@@ -259,6 +261,7 @@ impl<T: Comparer> DBSkip<T> {
             if let Some(ref pre_next) = pre.borrow().next[i] {
                 node.borrow_mut().next[i] = Some(Rc::clone(pre_next));
             }
+            // 因为 node.next[i]默认是Node，所以不用考虑 pre.borrow().next[i]为Node情况
 
             // pre->next = 新节点
             pre.borrow_mut().next[i] = Some(Rc::clone(&node));
@@ -283,6 +286,8 @@ impl<T: Comparer> DBSkip<T> {
             // pre->next = node->next
             if let Some(ref node_next) = node.borrow().next[i] {
                 pre.borrow_mut().next[i] = Some(Rc::clone(node_next));
+            }else{
+                pre.borrow_mut().next[i]= None;
             }
         }
 

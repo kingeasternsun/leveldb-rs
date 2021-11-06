@@ -1,3 +1,5 @@
+#![allow(unused)]
+#![warn(non_upper_case_globals)]
 use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::{sync, vec};
