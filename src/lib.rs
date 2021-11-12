@@ -5,7 +5,9 @@ pub mod memdb;
 pub use errors::GenericResult;
 
 pub mod compare;
+pub mod table;
 pub use compare::BytesComparer;
 pub use compare::Comparer;
 
 pub mod icompare;
+pub mod storage;
